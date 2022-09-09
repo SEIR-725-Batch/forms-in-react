@@ -9,17 +9,17 @@ function Login() {
     // With React hooks, it will only ever use EITHER the setCurrentFormState or
     // the passed in initialState but never both to set the value of currentFormState
     // Think about this like a ternary they built in to see if something exists.
-    const prevState = {
-        email: currentFormState.email,
-        password: currentFormState.password
-    }
+    // const prevState = {
+    //     email: currentFormState.email,
+    //     password: currentFormState.password
+    // }
     // console.log(currentFormState)
 
     function handleSubmit(event) {
         // Prevent reloading because that defeats the purpose of React
         event.preventDefault();
         // Reset form to the initial state of empty strings
-        console.log(`My final submitted form state is ${currentFormState}`);
+        // console.log(currentFormState);
         setCurrentFormState(initialState);
         // eventually this would also probably send some post request
     }
@@ -27,7 +27,7 @@ function Login() {
     console.log(currentFormState)
     function handleChange(event) {
         // Update the state to whatever it now is
-        setCurrentFormState({...prevState, [event.target.id]: event.target})
+        setCurrentFormState({...currentFormState, [event.target.id]: event.target.value})
     }
 
     return(
